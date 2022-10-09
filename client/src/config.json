@@ -1,7 +1,7 @@
 {
     "banner": "/banner.webp",
     "apiBaseEndpointProduction": "/api/",
-    "apiBaseEndpointDevelopment": "http://localhost:8000/api/",
+    "apiBaseEndpointDevelopment": "http://18.220.100.80:8000/api/",
     "apiTimeout": 10000,
     "CAPTCHA": {
         "siteKey": "6LerTgYgAAAAALa7WiJs3q0pM30PH6JH4oDi_DaK",

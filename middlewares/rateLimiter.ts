@@ -36,7 +36,7 @@ export class RateLimiter {
 
     getLimiter(config: any, keyGenerator?: any): RateLimitRequestHandler {
         const limiter = rateLimit({
-            windowMs: config.WINDOW_SIZE * 60 * 1000,
+            windowMs: config.WINDOW_SIZE * 1 * 1000,
             max: config.MAX_LIMIT,
             standardHeaders: true,
             legacyHeaders: false,

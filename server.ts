@@ -5,7 +5,7 @@ import path from 'path'
 import dotenv from 'dotenv'
 import { BN } from 'avalanche'
 
-import { RateLimiter, VerifyCaptcha, parseURI } from './middlewares'
+import { RateLimiter, parseURI } from './middlewares'
 import EVM from './vms/evm'
 
 import {
@@ -50,7 +50,7 @@ new RateLimiter(app, [
     }
 })
 
-const captcha: VerifyCaptcha = new VerifyCaptcha(app, process.env.CAPTCHA_SECRET!, process.env.V2_CAPTCHA_SECRET)
+// const captcha: VerifyCaptcha = new VerifyCaptcha(app, process.env.CAPTCHA_SECRET!, process.env.V2_CAPTCHA_SECRET)
 
 let evms = new Map<string, EVMInstanceAndConfig>()
 
@@ -86,19 +86,19 @@ evmchains.forEach((chain: ChainType): void => {
 })
 
 // Adding ERC20 token contracts to their HOST evm instances
-erc20tokens.forEach((token: ERC20Type, i: number): void => {
-    if(token.HOSTID) {
-        token = populateConfig(token, getChainByID(evmchains, token.HOSTID))
-    }
+// erc20tokens.forEach((token: ERC20Type, i: number): void => {
+//     if(token.HOSTID) {
+//         token = populateConfig(token, getChainByID(evmchains, token.HOSTID))
+//     }
 
-    erc20tokens[i] = token
-    const evm: EVMInstanceAndConfig = evms.get(getChainByID(evmchains, token.HOSTID)?.ID!)!
+//     erc20tokens[i] = token
+//     const evm: EVMInstanceAndConfig = evms.get(getChainByID(evmchains, token.HOSTID)?.ID!)!
 
-    evm?.instance.addERC20Contract(token)
-})
+//     evm?.instance.addERC20Contract(token)
+// })
 
 // POST request for sending tokens or coins
-router.post('/sendToken', captcha.middleware, async (req: any, res: any) => {
+router.post('/sendToken',  async (req: any, res: any) => {
     const address: string = req.body?.address
     const chain: string = req.body?.chain
     const erc20: string | undefined = req.body?.erc20

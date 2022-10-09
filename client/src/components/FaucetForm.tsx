@@ -72,7 +72,7 @@ const FaucetForm = (props: any) => {
         
         chainConfigs?.forEach((chain: any, i: number) => {
             let item = <div className='select-dropdown'>
-                <img alt = { chain.NAME[0] } src = { chain.IMAGE } />
+                {/* <img alt = { chain.NAME[0] } src = { chain.IMAGE } /> */}
                 { chain.NAME }
 
                 {
@@ -455,7 +455,7 @@ const FaucetForm = (props: any) => {
     return (
         <div className='container'>
             <div className = "box">
-                <div className='banner' style={{backgroundImage: `url(${props.config.banner})`}}/>
+                {/* <div className='banner' style={{backgroundImage: `url(${props.config.banner})`}}/> */}
 
                 <div className='box-content'>
                     <div className='box-header'>
@@ -465,7 +465,7 @@ const FaucetForm = (props: any) => {
 
                         <ChainDropdown /> <br/>
 
-                        <div>
+                        {/* <div>
                             <div style={{width: "100%"}}>
                                 <span style={{color: "grey", fontSize: "12px", float: "right"}}>
                                     Faucet balance: {Math.round(balance/1e9 * 100) / 100} {chainConfigs[token!]?.TOKEN}
@@ -477,7 +477,7 @@ const FaucetForm = (props: any) => {
 
                                 <TokenDropdown/>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
 
                     <br/>

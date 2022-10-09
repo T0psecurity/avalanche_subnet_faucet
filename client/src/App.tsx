@@ -9,7 +9,7 @@ function App() {
     <div className="app">
       <FaucetForm axios = {axios} config = {config}/>
 
-      <Contribute/>
+      {/* <Contribute/> */}
     </div>
   )
 }
